@@ -1,0 +1,215 @@
+-----------unix command-----------
+ cd .. 
+touch test.js    -  <create file>>
+vi test.txt
+start . 
+rm <<filename>>
+rm -rf <<dirname>>
+pwd -    [gives location of folder ]
+ls -a   <<shown hiddle file>>
+
+----------------Section2-------X----------------
+git config --global  user.name "VaishaliS"
+git config --global  user.email "vaishali.srivastava@capgemini.com"
+git config --global  user.name
+git config --list --show-origin   <<list all  configuration>>
+git log   -<to show history>
+git init mytestA   <<initilize git project>>
+git init ---local R
+git init --bare
+git status 
+---------------Make Java project with .git------------------
+<<add some file >>
+git staus   -<this will show untrack file>>
+git add data.txt  // adding inside the staging area
+git add .         //all file //not recommneded
+git commit      // add data in LR
+git commit -m "commit statment"
+git log //monitoring ...
+git add src/    << this is automic commit>>
+git commit -m "added src folder files"
+
+
+**********Section5*****Log Commands**********
+git log --abbrev-commit
+git log --oneline
+git commit --amend   <<We can edit commit meassages using ammend command>>
+************Git ignore file structurre***.gitignore**************
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+-----------------------gitignore ------demo-------------------
+Create jsproject
+git init
+create index.js file and write something
+create package .json file using npm init commad
+create secrete.txt file
+run <<git status>> where u see  untrack file
+then  run<< git add  index.js>>
+then run  <<git add package.json>>
+do not add secret.js
+then  run <<git commit -m "index and json added">>
+then again check status <<git staus>>
+Then open .gitignore file and mention node_nodeule/
+then add <git add .gitignore>>
+Then add <git commit -m "added gitignore"
+then run git staus and you will realise that git is not tarcking nodemodule folder
+
+
+****Section-6  *******Git branching commnad***demo****
+git branch    <<view current branch>>
+git branch oldies   <<create new branch>>
+git branch      <view branches .* will be the current branch>> 
+git  switch oldies  <<switch to the new branch>>
+Create/Modify files in new brans and add and commit and check status and logs.
+You will notice that branch head points to the new commit
+git branch -b checkout name-of-branch
+
+***********Section 7******Merging*******
+If you want to merge oldies and bugfix
+git branch master  - < switch to master>>
+git merge bugfix     -  << merge bugfix commit   with master>>
+
+****Section 7***Merge Conflicts***demo**Non Fast forward merge with no conflicts for new file in master*******
+touch oldsongs.txt   <<create new  file and add some songs there>>
+git status
+git add oldsongs.txt
+git commit
+git branch oldclassicla
+git switch  oldclassicla
+touch  oldclasscicalsongs.txt   <<add some classical songs there>
+git add .
+git commit
+git status
+git branch master
+touch oldmovie.txt   << add old movie name>>
+git status
+git add .
+git commit
+$ git merge oldclassical   <<this is non-fast forward commit>>
+Updating 7d957d2..c25ed54
+Fast-forward
+ classical.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 classical.txt
+------------------Section 7--merge conflics-------
+git branch -d oldclassical <<delete the branch>.
+git branch vai   <create  new branch for vaishali>>
+git branch abhi    <when both edit same file at same line merge conflicts happen>>
+git switch abhi  <switch tom abi>>
+vi songs.txt   << add the songs abhi like , add and commit>>
+git  switch vai  << and add songs in the same songs.txt file which vai likes  and add /commit>>
+git switch -c combo
+$ git merge abhi
+<<Auto-merging oldsongs.txt
+CONFLICT (content): Merge conflict in oldsongs.txt
+Automatic merge failed; fix conflicts and then commit the result.>>
+
+vi olsdongs.txt
+<<
+yei mera dil
+Jindagi
+<<<<<<< HEAD
+vai likes song 3
+vai likes song 4
+=======
+abhi likes song1
+abhi like songs 2
+>>>>>>> abhi
+>>
+resolve the conficts  add  and commit.
+ git  checkout -b anju   <create and switch to new branch>>
+--------Section8-------comparing  changes with Git Diff---------
+
+
+
+
+
+
+
+-----------Section7----Fast Forward Merge-------------------
+[When multiple people are  on different features on same projects in the same
+company. and both features are good and if you want to merge
+all the features then]
+
+git branch -v   <<will give branch information with commit message>
+git branch master  - < switch to master >>
+git log   <<se the history>>
+git switch bugfix   <<switch to bugfix and add some commits in bugfix in file>
+git log  < check log for bugfix>>
+git switch master  
+git merge bugfix   <this will do fast forward>>
+git log.
+
+
+-------------------------------
+git remote add <<alies> <repository url>
+or 
+git remote   add origin  repo_url
+git push -u  <<alias>> <nameof_branch_where_we_want_to_push>>
+git push -u origin master
+git fetch <repositoryurl>
+git pull alis
+git merge master
+git config --global --unset http.proxy
+git config --global http.proxy http://login:password@puneproxy.igate.com:8080
+
+
+------------------------X------------------------
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/VaishaliMendre/003-MovieCatlogService-AzureGitHub.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin https://github.com/VaishaliMendre/003-MovieCatlogService-AzureGitHub.git
+git branch -M main
+git push -u origin main
+
+git rm -r   VaishaliGitTestJavaP\target
+git commit -m "Removed test directory"
+
+git remote add origin   https://github.com/CG-FS-ABL/VaishaliGitTest-1.git
+git branch -M main
+git push -u origin main
+
+git push origin master   # Change 'master' with your branch name
+
+---------------.gitignore-------structure---------
+**/.settings/**
+**/.project
+**/.classpath
+**/target/**
+**/src/test/**
+
